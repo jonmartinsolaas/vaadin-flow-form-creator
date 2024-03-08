@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd044e33-d584-4cfc-a5df-7cbf10ebc2af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FieldLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FieldOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FieldType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FieldWidth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FormCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
@@ -37,6 +31,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.vaadin-flow-form-creator [clean].executor": "Run",
     "Maven.vaadin-flow-form-creator [install].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -64,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709897126942</updated>
-      <workItem from="1709897128031" duration="784000" />
+      <workItem from="1709897128031" duration="1901000" />
     </task>
     <servers />
   </component>
