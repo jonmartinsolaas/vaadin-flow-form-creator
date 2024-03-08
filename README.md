@@ -11,6 +11,12 @@ the field will not be generated on the form.
 
 You don't have to use Lombok annotations.
 
+If your enum implements HasLabel the getLabel will be used to populate
+the combobox.
+
+Lists in the bean, of type string or number, can be represented
+in gui as a commaseparated list in a TextField or NumberField.
+
 Example code
 
 ```java

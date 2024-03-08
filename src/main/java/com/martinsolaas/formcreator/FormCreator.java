@@ -32,7 +32,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 @SuppressWarnings("ALL")
 @Slf4j
 public class FormCreator {
@@ -76,6 +75,8 @@ public class FormCreator {
             } else if (modelFieldClass.isEnum()) {
                 ComboBox<Enum<?>> combobox = new ComboBox<>(label);
                 combobox.setItems((Enum<?>[])modelFieldClass.getEnumConstants());
+                if (Arrays.asList(modelFieldClass.getInterfaces()).contains(HasLabel.class))
+                    combobox.setItemLabelGenerator(item -> item == null ? "" : ((HasLabel)item).getLabel());
                 inputField = combobox;
             } else {
                 throw new RuntimeException("Unsupported member type " + modelFieldClass.getName());
