@@ -44,8 +44,8 @@ Usage
 Div parent = new Div();
 Parameters params = new Parameters();
 FormLayout formLayout = new FormLayout(); // Can use VerticalLayout etc. as well.
-BeanValidationBinder<UploadDocumentParams> binder 
-        = new BeanValidationBinder<>(UploadDocumentParams.class);
+BeanValidationBinder<Parameters> binder 
+        = new BeanValidationBinder<>(Parameters.class);
 
 FormCreator.bindAndCreateFields(formLayout, binder, params);
 
