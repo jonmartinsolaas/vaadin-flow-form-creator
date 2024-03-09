@@ -1,15 +1,17 @@
 # Vaadin Flow form creator
 
 This project will take a given Layout, Binder and Bean, and 
-create Vaadin fields on the form, according to some annotations
-on the bean. 
+create Vaadin fields on the layout, according to some annotations
+on the bean. Using a FormLayout the @FieldWidth annotation has no
+effect.
 
 @FieldOrder annotation is not optional, if it is left out it means
 the field will not be generated on the form.
 
 @FieldType can be used to override the default field type deduction.
 
-You don't have to use Lombok annotations.
+You don't have to use Lombok annotations, and in fact Lombok shouldn't
+be involved here at all.
 
 If your enum implements HasLabel the getLabel will be used to populate
 the combobox.

@@ -3,7 +3,6 @@ package com.martinsolaas.formcreator;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasSize;
-import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
@@ -17,8 +16,6 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.Result;
 import com.vaadin.flow.data.binder.ValueContext;
 import com.vaadin.flow.data.converter.Converter;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -32,19 +29,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@SuppressWarnings("ALL")
-@Slf4j
 public class FormCreator {
 
-    public static <T extends Component & HasComponents, U> void bindAndCreateFields(T layout, BeanValidationBinder<U> binder, U bean) {
+    public static <T extends Component & HasComponents, U> void bindAndCreateFields(
+            T layout, BeanValidationBinder<U> binder, U bean) {
         Arrays.stream(bean.getClass().getDeclaredFields())
                 .filter(field -> field.isAnnotationPresent(FieldOrder.class))
                 .sorted(Comparator.comparing(field -> field.getAnnotation(FieldOrder.class).value()))
                 .forEach(field -> createFieldAndBindField(field, binder, layout));
     }
 
-    @SneakyThrows
-    private static <T extends Component & HasComponents> void createFieldAndBindField(Field modelField, Binder<?> binder, T layout) {
+    private static <T extends Component & HasComponents> void createFieldAndBindField(
+            Field modelField, Binder<?> binder, T layout) {
 
         Class<?> modelFieldClass = modelField.getType();
         Optional<Class<? extends InputField<?, ?>>> specifiedInputFieldType;
@@ -81,17 +77,21 @@ public class FormCreator {
             } else {
                 throw new RuntimeException("Unsupported member type " + modelFieldClass.getName());
             }
-        } else { // user has specified input field type
+        } else { // user has specified input field type, work in progress...
             Class<? extends InputField<?, ?>> specifiedComponentType = specifiedInputFieldType.get();
-            inputField = specifiedComponentType.getDeclaredConstructor().newInstance();
+            try {
+                inputField = specifiedComponentType.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             inputField.setLabel(modelField.getAnnotation(FieldLabel.class) != null ? modelField.getAnnotation(FieldLabel.class).value() : modelField.getName());
         }
 
         if (modelField.getAnnotation(FieldWidth.class) != null && inputField != null && inputField instanceof HasSize) {
-            ((HasSize) inputField).setWidth(modelField.getAnnotation(FieldWidth.class).value());
+            (inputField).setWidth(modelField.getAnnotation(FieldWidth.class).value());
         }
 
-        Binder.BindingBuilder bindingBuilder = binder.forField((HasValue) inputField);
+        Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
 
         if (modelFieldClass == Integer.class) {
             bindingBuilder.withConverter(new DoubleToIntegerConverter());
