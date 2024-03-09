@@ -1,31 +1,39 @@
 # Vaadin Flow form creator
 
-This project will take a given Layout, Binder and Bean, and 
-create Vaadin fields on the layout, according to some annotations
-on the bean. Using a FormLayout the @FieldWidth annotation has no
-effect.
+This project will take a given Layout, Binder and Bean, and create 
+Vaadin fields on the layout, according to some annotationson the bean.
+Using a FormLayout the @FieldWidth annotation has noeffect.
 
-@FieldOrder annotation is not optional, if it is left out it means
-the field will not be generated on the form.
+@FieldOrder annotation is not optional, if it is left out it means the
+field will not be generated on the form.
 
-@FieldType can be used to override the default field type deduction.
-
-You don't have to use Lombok annotations, and in fact Lombok shouldn't
-be involved here at all.
+@FieldType can be used to override resolving of field type.
 
 If your enum implements HasLabel the getLabel will be used to populate
 the combobox.
 
-Lists in the bean, of type string or number, can be represented
-in gui as a commaseparated list in a TextField or NumberField.
+Lists in the bean, of type string or number, can be represented in gui
+as a comma separated list in a TextField or NumberField.
 
-Example code
+There is no registered Maven component for this code at the moment,
+and I'm not sure there will be. Neither is the code well tested or to 
+be considered production ready. For now, consider it a prototype itself,
+that could be useful in application GUI prototyping.
+
+GUI stuff always involve tweaking and there will always be requirements
+no one else has thought of. Normally I get there using Alejandro Duartes
+excellent CRUD Ui addon, but sometimes it is overkill, or does not do 
+what I want exactly. So consider this code a starting point and modify it
+to get where you need to go. Feel free to contribute your modifications. 
+Maybe they even could be useful in CRUD Ui.
+
+Example code:
 
 ```java
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Parameters {
+public class ProjectSummary {
 
     @NotNull(message="Year is mandatory")
     @Max(value = 2050, message = "Year must be less than 2051")
@@ -44,24 +52,24 @@ public class Parameters {
     ...
 ```
 
-Usage
+Usage:
 
 ```java
 ...
 
 Div parent = new Div();
-Parameters params = new Parameters();
+ProjectSummary summary = new ProjectSummary();
 FormLayout formLayout = new FormLayout(); // Can use VerticalLayout etc. as well.
-BeanValidationBinder<Parameters> binder 
-        = new BeanValidationBinder<>(Parameters.class);
+BeanValidationBinder<ProjectSummary> binder 
+        = new BeanValidationBinder<>(ProjectSummary.class);
 
 FormCreator.bindAndCreateFields(formLayout, binder, params);
 
 Button button = new Button();
 
-button.addClickListener( e -> {
-    binder.writeBean(params);
-    System.out.println(params.toString());
+button.addClickListener(e -> {
+    binder.writeBean(summary);
+    System.out.println(summary.toString());
 });
 
 ...        
