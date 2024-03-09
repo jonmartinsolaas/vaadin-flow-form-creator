@@ -71,8 +71,9 @@ public class FormCreator {
             } else if (modelFieldClass.isEnum()) {
                 ComboBox<Enum<?>> combobox = new ComboBox<>(label);
                 combobox.setItems((Enum<?>[])modelFieldClass.getEnumConstants());
-                if (Arrays.asList(modelFieldClass.getInterfaces()).contains(HasLabel.class))
-                    combobox.setItemLabelGenerator(item -> item == null ? "" : ((HasLabel)item).getLabel());
+                if (Arrays.asList(modelFieldClass.getInterfaces()).contains(HasLabel.class)) {
+                    combobox.setItemLabelGenerator(item -> item == null ? "" : ((HasLabel) item).getLabel());
+                }
                 inputField = combobox;
             } else {
                 throw new RuntimeException("Unsupported member type " + modelFieldClass.getName());
@@ -82,9 +83,10 @@ public class FormCreator {
             try {
                 inputField = specifiedComponentType.getDeclaredConstructor().newInstance();
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Exception during instantiation of " + specifiedComponentType.getName(), e);
             }
-            inputField.setLabel(modelField.getAnnotation(FieldLabel.class) != null ? modelField.getAnnotation(FieldLabel.class).value() : modelField.getName());
+            inputField.setLabel(modelField.getAnnotation(FieldLabel.class) != null
+                    ? modelField.getAnnotation(FieldLabel.class).value() : modelField.getName());
         }
 
         if (modelField.getAnnotation(FieldWidth.class) != null && inputField != null && inputField instanceof HasSize) {
