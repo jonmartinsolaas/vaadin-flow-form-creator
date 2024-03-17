@@ -93,6 +93,10 @@ public class FormCreator {
             (inputField).setWidth(modelField.getAnnotation(FieldWidth.class).value());
         }
 
+        if (modelField.getAnnotation(FieldHeight.class) != null && inputField != null && inputField instanceof HasSize) {
+            (inputField).setHeight(modelField.getAnnotation(FieldHeight.class).value());
+        }
+
         Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
 
         if (modelFieldClass == Integer.class) {
