@@ -98,7 +98,7 @@ public class FormCreator {
         }
 
         if (modelField.getAnnotation(FieldReadOnly.class) != null && inputField != null) {
-            inputField.setReadOnly(true);
+            inputField.setReadOnly(modelField.getAnnotation(FieldReadOnly.class).value());
         }
 
         Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
