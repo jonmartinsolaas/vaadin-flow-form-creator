@@ -90,11 +90,15 @@ public class FormCreator {
         }
 
         if (modelField.getAnnotation(FieldWidth.class) != null && inputField != null && inputField instanceof HasSize) {
-            (inputField).setWidth(modelField.getAnnotation(FieldWidth.class).value());
+            inputField.setWidth(modelField.getAnnotation(FieldWidth.class).value());
         }
 
         if (modelField.getAnnotation(FieldHeight.class) != null && inputField != null && inputField instanceof HasSize) {
-            (inputField).setHeight(modelField.getAnnotation(FieldHeight.class).value());
+            inputField.setHeight(modelField.getAnnotation(FieldHeight.class).value());
+        }
+
+        if (modelField.getAnnotation(FieldReadOnly.class) != null && inputField != null) {
+            inputField.setReadOnly(true);
         }
 
         Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
