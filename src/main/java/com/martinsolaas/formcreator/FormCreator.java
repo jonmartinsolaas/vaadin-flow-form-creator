@@ -3,10 +3,12 @@ package com.martinsolaas.formcreator;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasSize;
+import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.shared.InputField;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -51,6 +53,7 @@ public class FormCreator {
             specifiedInputFieldType = Optional.empty();
 
         InputField inputField = null;
+        Component component = null; // for Html
         String label = modelField.getAnnotation(FieldLabel.class) != null
                 ? modelField.getAnnotation(FieldLabel.class).value() : modelField.getName();
 
@@ -70,11 +73,13 @@ public class FormCreator {
                 inputField = new TimePicker(label);
             } else if (modelFieldClass.isEnum()) {
                 ComboBox<Enum<?>> combobox = new ComboBox<>(label);
-                combobox.setItems((Enum<?>[])modelFieldClass.getEnumConstants());
+                combobox.setItems((Enum<?>[]) modelFieldClass.getEnumConstants());
                 if (Arrays.asList(modelFieldClass.getInterfaces()).contains(HasLabel.class)) {
                     combobox.setItemLabelGenerator(item -> item == null ? "" : ((HasLabel) item).getLabel());
                 }
                 inputField = combobox;
+            } else if (modelFieldClass == Div.class) {
+                component = new Div(label);
             } else {
                 throw new RuntimeException("Unsupported member type " + modelFieldClass.getName());
             }
@@ -101,22 +106,28 @@ public class FormCreator {
             inputField.setReadOnly(modelField.getAnnotation(FieldReadOnly.class).value());
         }
 
-        Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
+        if (inputField != null) {
+            Binder.BindingBuilder bindingBuilder = binder.forField(inputField);
 
-        if (modelFieldClass == Integer.class) {
-            bindingBuilder.withConverter(new DoubleToIntegerConverter());
-        } else if (modelFieldClass == Short.class) {
-            bindingBuilder.withConverter(new DoubleToShortConverter());
-        } else if (modelFieldClass == Float.class) {
-            bindingBuilder.withConverter(new DoubleToFloatConverter());
-        } else if (isParameterizedListOfType(modelField.getGenericType(), Integer.class)) {
-            bindingBuilder.withConverter(new StringToIntegerListConverter());
-        } else if (isParameterizedListOfType(modelField.getGenericType(), String.class)) {
-            bindingBuilder.withConverter(new StringToStringListConverter());
+            if (modelFieldClass == Integer.class) {
+                bindingBuilder.withConverter(new DoubleToIntegerConverter());
+            } else if (modelFieldClass == Short.class) {
+                bindingBuilder.withConverter(new DoubleToShortConverter());
+            } else if (modelFieldClass == Float.class) {
+                bindingBuilder.withConverter(new DoubleToFloatConverter());
+            } else if (isParameterizedListOfType(modelField.getGenericType(), Integer.class)) {
+                bindingBuilder.withConverter(new StringToIntegerListConverter());
+            } else if (isParameterizedListOfType(modelField.getGenericType(), String.class)) {
+                bindingBuilder.withConverter(new StringToStringListConverter());
+            }
+
+            bindingBuilder.bind(modelField.getName());
+            layout.add((Component) inputField);
         }
 
-        bindingBuilder.bind(modelField.getName());
-        layout.add((Component) inputField);
+        if (component != null) {
+            layout.add(component);
+        }
     }
 
     private static class DoubleToIntegerConverter implements Converter<Double, Integer> {

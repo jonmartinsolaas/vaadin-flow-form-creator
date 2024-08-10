@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd044e33-d584-4cfc-a5df-7cbf10ebc2af" name="Changes" comment="read-only">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FormCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator/FormCreator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +85,7 @@
       <workItem from="1709897128031" duration="3710000" />
       <workItem from="1710314786628" duration="1203000" />
       <workItem from="1710512841191" duration="196000" />
-      <workItem from="1723285975860" duration="2792000" />
+      <workItem from="1723285975860" duration="4602000" />
     </task>
     <task id="LOCAL-00001" summary="dont know what i am commiting">
       <option name="closed" value="true" />
@@ -120,10 +121,36 @@
     <option name="OPEN_GENERIC_TABS">
       <map>
         <entry key="eb6e0602-26b5-4d9e-83ce-4b58304d8541" value="TOOL_WINDOW" />
+        <entry key="27604b01-5e2a-449a-8465-9f52b4ed0c64" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="27604b01-5e2a-449a-8465-9f52b4ed0c64">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
         <entry key="eb6e0602-26b5-4d9e-83ce-4b58304d8541">
           <value>
             <State>
