@@ -9,6 +9,7 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.shared.InputField;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -80,6 +81,10 @@ public class FormCreator {
                 inputField = combobox;
             } else if (modelFieldClass == Div.class) {
                 component = new Div(label);
+            } else if (modelFieldClass == Span.class) {
+                component = new Span(label);
+            } else if (modelFieldClass == Html.class) {
+                component = new Html(label);
             } else {
                 throw new RuntimeException("Unsupported member type " + modelFieldClass.getName());
             }
