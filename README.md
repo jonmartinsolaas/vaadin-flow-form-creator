@@ -1,5 +1,7 @@
 # Vaadin Flow form creator
 
+Before you read any further, also check out git@github.com:mstahv/autoform-demo.git
+
 This project will take a given Layout, Binder and Bean, and create 
 Vaadin fields on the layout, according to some annotationson the bean.
 Using a FormLayout the @FieldWidth annotation has noeffect.
