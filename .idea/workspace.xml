@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd044e33-d584-4cfc-a5df-7cbf10ebc2af" name="Changes" comment="support for Div" />
+    <list default="true" id="fd044e33-d584-4cfc-a5df-7cbf10ebc2af" name="Changes" comment="support for Div">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,38 +29,42 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2dP5xlZNnj4rE5fYkyiQpxTQcZ9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vaadin-flow-form-creator [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vaadin-flow-form-creator [deploy].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vaadin-flow-form-creator [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vaadin-flow-form-creator [site].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jms/Documents/Src/vaadin-flow-form-creator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.vaadin-flow-form-creator [clean].executor": "Run",
+    "Maven.vaadin-flow-form-creator [deploy].executor": "Run",
+    "Maven.vaadin-flow-form-creator [install].executor": "Run",
+    "Maven.vaadin-flow-form-creator [site].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jms/Documents/Src/vaadin-flow-form-creator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/martinsolaas/formcreator" />
@@ -66,8 +73,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
       </set>
     </attachedChunks>
   </component>
@@ -83,6 +90,19 @@
       <workItem from="1710314786628" duration="1203000" />
       <workItem from="1710512841191" duration="196000" />
       <workItem from="1723285975860" duration="4923000" />
+      <workItem from="1723299469188" duration="2479000" />
+      <workItem from="1723580770931" duration="733000" />
+      <workItem from="1723622361222" duration="610000" />
+      <workItem from="1723664012796" duration="599000" />
+      <workItem from="1723713038088" duration="599000" />
+      <workItem from="1723722925614" duration="634000" />
+      <workItem from="1724970294488" duration="599000" />
+      <workItem from="1724973828482" duration="607000" />
+      <workItem from="1725207372895" duration="600000" />
+      <workItem from="1730215214248" duration="827000" />
+      <workItem from="1733312842943" duration="898000" />
+      <workItem from="1733316181973" duration="4210000" />
+      <workItem from="1755208085710" duration="549000" />
     </task>
     <task id="LOCAL-00001" summary="dont know what i am commiting">
       <option name="closed" value="true" />
@@ -116,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723298551404</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="support for Div">
+      <option name="closed" value="true" />
+      <created>1723299496955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723299496955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
